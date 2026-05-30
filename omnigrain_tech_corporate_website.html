@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omnigrain Tech | Elite IT Staffing & Custom Software Solutions</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0B1120',      /* Deep space navy */
+              card: '#152035',      /* Rich slate card */
+              accent: '#06B6D4',    /* Tech electric teal */
+              accentDark: '#0891B2',/* Darker teal */
+              gold: '#F59E0B',      /* Premium gold accents */
+              muted: '#94A3B8'      /* Soft gray */
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B1120;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06B6D4;
+    }
+    
+    /* Active Navigation State Helper */
+    .nav-active {
+      color: #06B6D4 !important;
+      border-bottom: 2px solid #06B6D4;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans min-h-screen flex flex-col antialiased">
+
+  <!-- Header & Navigation -->
+  <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+          <div class="w-10 h-10">
+        <img src="C:\Users\VIKAS PANDEY\OneDrive\Desktop\omnigrain\logofcompany.png.jpeg"
+         alt="Omnigrain Logo"
+         class="w-full h-full object-contain">
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-brand-accent">OMNIGRAIN</span>
+            <span class="block text-[10px] text-brand-accent tracking-[0.25em] font-bold uppercase">TECH</span>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8 text-sm font-medium">
+          <button onclick="navigateTo('home')" id="nav-home" class="nav-btn py-2 text-slate-300 hover:text-white transition duration-200">Home</button>
+          <button onclick="navigateTo('about')" id="nav-about" class="nav-btn py-2 text-slate-300 hover:text-white transition duration-200">About Us</button>
+          <button onclick="navigateTo('services')" id="nav-services" class="nav-btn py-2 text-slate-300 hover:text-white transition duration-200">Services</button>
+          <button onclick="navigateTo('careers')" id="nav-careers" class="nav-btn py-2 text-slate-300 hover:text-white transition duration-200">Careers</button>
+          <button onclick="navigateTo('contact')" id="nav-contact" class="nav-btn py-2 text-slate-300 hover:text-white transition duration-200">Contact Us</button>
+        </nav>
+
+        <!-- CTA & Mobile Menu Toggle -->
+        <div class="flex items-center space-x-4">
+          <button onclick="navigateTo('contact')" class="hidden lg:flex items-center space-x-2 bg-gradient-to-r from-brand-accent to-blue-600 hover:from-brand-accentDark hover:to-blue-700 text-white font-semibold px-5 py-2.5 rounded-lg shadow-lg shadow-brand-accent/20 hover:shadow-brand-accent/30 transition-all duration-300 hover:-translate-y-0.5">
+            <span>Hire Talents / Build Tech</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </button>
+          
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none" aria-label="Toggle menu">
+            <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+            <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95 border-b border-slate-800 transition-all duration-300">
+      <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+        <button onclick="navigateTo('home')" class="mobile-nav-btn block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Home</button>
+        <button onclick="navigateTo('about')" class="mobile-nav-btn block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white">About Us</button>
+        <button onclick="navigateTo('services')" class="mobile-nav-btn block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Services</button>
+        <button onclick="navigateTo('careers')" class="mobile-nav-btn block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Careers</button>
+        <button onclick="navigateTo('contact')" class="mobile-nav-btn block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Contact Us</button>
+        <div class="pt-4 pb-2 border-t border-slate-800 px-3">
+          <button onclick="navigateTo('contact')" class="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-brand-accent to-blue-600 text-white font-semibold py-2.5 rounded-lg shadow-md shadow-brand-accent/20">
+            <span>Get Started</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="flex-grow">
+
+    <!-- ================== PAGE: HOME ================== -->
+    <section id="page-home" class="page-section">
+      <!-- Hero Section -->
+      <div class="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-36">
+        <!-- Abstract Tech Background Accent Circles -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+              <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-accent/10 text-brand-accent border border-brand-accent/20 tracking-wider uppercase">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 mr-1.5"></i> Empowering Tech Excellence
+              </span>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
+                Elite IT Staffing & <br>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-accent via-blue-400 to-indigo-400">
+                  Custom Software
+                </span> Solutions
+              </h1>
+              <p class="text-lg text-brand-muted max-w-2xl mx-auto lg:mx-0">
+                Omnigrain Tech bridges the digital skill gap. We equip industry leaders with top-tier specialized IT talent and craft elite bespoke software architectures.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                <button onclick="navigateTo('contact')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-accent to-blue-600 hover:from-brand-accentDark hover:to-blue-700 text-white font-bold shadow-xl shadow-brand-accent/10 hover:shadow-brand-accent/20 transition duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2">
+                  <span>Get Free Consultations</span>
+                  <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                <button onclick="navigateTo('services')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card hover:bg-slate-800 text-white font-semibold border border-slate-700 transition duration-300 flex items-center justify-center space-x-2">
+                  <span>Explore Our Services</span>
+                </button>
+              </div>
+
+              <!-- Quick Stats -->
+              <div class="grid grid-cols-3 gap-6 pt-10 border-t border-slate-800 max-w-lg mx-auto lg:mx-0">
+                <div>
+                  <div class="text-2xl sm:text-3xl font-extrabold text-white">150+</div>
+                  <div class="text-xs text-brand-muted mt-1 uppercase tracking-wider">IT Experts Hired</div>
+                </div>
+                <div>
+                  <div class="text-2xl sm:text-3xl font-extrabold text-white">98%</div>
+                  <div class="text-xs text-brand-muted mt-1 uppercase tracking-wider">Client Retention</div>
+                </div>
+                <div>
+                  <div class="text-2xl sm:text-3xl font-extrabold text-white">50+</div>
+                  <div class="text-xs text-brand-muted mt-1 uppercase tracking-wider">Custom Projects</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Image Visual -->
+            <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+              <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-brand-accent to-blue-600 opacity-20 blur-xl"></div>
+              <div class="relative bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl">
+                <!-- Code simulation UI -->
+                <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                  <div class="flex space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                  </div>
+                  <span class="text-xs text-slate-500 font-mono">omnigrain-dashboard.js</span>
+                </div>
+                <div class="space-y-4 font-mono text-sm">
+                  <div class="text-slate-400"><span class="text-purple-400">const</span> clientRequirements = {</div>
+                  <div class="pl-4 text-slate-400">scope: <span class="text-green-300">"Enterprise Scaling"</span>,</div>
+                  <div class="pl-4 text-slate-400">manpowerRequired: <span class="text-amber-400">["Cloud Engineers", "React Devs"]</span>,</div>
+                  <div class="pl-4 text-slate-400">deadline: <span class="text-green-300">"ASAP"</span>,</div>
+                  <div class="pl-4 text-slate-400">securityStandard: <span class="text-green-300">"Military-Grade"</span></div>
+                  <div class="text-slate-400">};</div>
+                  <div class="text-brand-accent mt-4 font-semibold">// Hiring matched expert personnel...</div>
+                  <div class="p-3 bg-brand-dark/80 rounded border border-slate-800 flex items-center justify-between">
+                    <span class="text-xs text-white">IT Resource Matching Efficiency</span>
+                    <span class="text-xs font-bold text-green-400">99.4%</span>
+                  </div>
+                  <div class="p-3 bg-brand-dark/80 rounded border border-slate-800 flex items-center justify-between">
+                    <span class="text-xs text-white">SLA Uptime Commitment</span>
+                    <span class="text-xs font-bold text-brand-accent">99.99%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlighting Key Verticals -->
+      <div class="py-16 bg-brand-dark border-t border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Pillars of Excellence</h2>
+            <p class="mt-4 text-lg text-brand-muted">We provide custom engineered solutions and the finest personnel to fuel tech infrastructure worldwide.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Pillar 1: Staffing -->
+            <div class="group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-brand-accent/50 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-brand-accent/5 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 bg-brand-accent/10 group-hover:bg-brand-accent/20 rounded-xl flex items-center justify-center text-brand-accent mb-6 transition-all">
+                  <i data-lucide="users-round" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">Enterprise IT Staffing</h3>
+                <p class="text-brand-muted leading-relaxed mb-6">
+                  Access thoroughly vetted elite tech profiles instantly. From highly specialized backend cloud developers to modern front-end engineers and rigorous DevOps, we provide perfect-fit contractors or full-time resources.
+                </p>
+                <ul class="space-y-2 mb-8">
+                  <li class="flex items-center text-sm text-slate-300">
+                    <i data-lucide="check" class="w-4 h-4 text-brand-accent mr-2"></i> Thorough Tech Vetting & Coding Tests
+                  </li>
+                  <li class="flex items-center text-sm text-slate-300">
+                    <i data-lucide="check" class="w-4 h-4 text-brand-accent mr-2"></i> On-demand Scaling & Agile Replacements
+                  </li>
+                  <li class="flex items-center text-sm text-slate-300">
+                    <i data-lucide="check" class="w-4 h-4 text-brand-accent mr-2"></i> Dedicated Client Account Managers
+                  </li>
+                </ul>
+              </div>
+              <button onclick="navigateTo('services')" class="inline-flex items-center text-brand-accent font-semibold hover:text-white transition">
+                <span>Learn staffing details</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </button>
+            </div>
+
+            <!-- Pillar 2: Custom Software -->
+            <div class="group bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-brand-accent/50 p-8 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-brand-accent/5 flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 bg-blue-600/10 group-hover:bg-blue-600/20 rounded-xl flex items-center justify-center text-blue-400 mb-6 transition-all">
+                  <i data-lucide="terminal" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3">Bespoke Software Engineering</h3>
+                <p class="text-brand-muted leading-relaxed mb-6">
+                  Turn visionary concepts into highly polished, robust custom software products. We architect end-to-end, high-performance web platforms, secure cloud backends, and cutting-edge mobile solutions.
+                </p>
+                <ul class="space-y-2 mb-8">
+                  <li class="flex items-center text-sm text-slate-300">
+                    <i data-lucide="check" class="w-4 h-4 text-blue-400 mr-2"></i> Secure Microservices Architecture
+                  </li>
+                  <li class="flex items-center text-sm text-slate-300">
+                    <i data-lucide="check" class="w-4 h-4 text-blue-400 mr-2"></i> Beautiful, Fluid UX/UI Designing
+                  </li>
+                  <li class="flex items-center text-sm text-slate-300">
+                    <i data-lucide="check" class="w-4 h-4 text-blue-400 mr-2"></i> Scalable API Integrity & Cloud Native Build
+                  </li>
+                </ul>
+              </div>
+              <button onclick="navigateTo('services')" class="inline-flex items-center text-blue-400 font-semibold hover:text-white transition">
+                <span>Explore custom engineering</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Signals / Why Omnigrain -->
+      <div class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs uppercase tracking-widest text-brand-gold font-bold">Engineered For Performance</span>
+            <h2 class="text-3xl font-extrabold text-white mt-2">Why Tech Leaders Partner with Us</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl">
+              <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-accent mb-4">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2">99.8% Vetted Talent</h4>
+              <p class="text-sm text-brand-muted">Only the top percentile of IT professionals pass our stringent, customized structural coding & systemic interviews.</p>
+            </div>
+
+            <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl">
+              <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-accent mb-4">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2">Rapid Deployment</h4>
+              <p class="text-sm text-brand-muted">Fill complex critical IT positions within 48 to 72 hours via our robust automated talent pool match systems.</p>
+            </div>
+
+            <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl">
+              <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-accent mb-4">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2">SLA & Support Guarantee</h4>
+              <p class="text-sm text-brand-muted">Comprehensive SLA compliance ensures smooth integration, structured timelines, and seamless handoffs.</p>
+            </div>
+
+            <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl">
+              <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-accent mb-4">
+                <i data-lucide="cog" class="w-5 h-5"></i>
+              </div>
+              <h4 class="text-lg font-bold text-white mb-2">Adaptive Agility</h4>
+              <p class="text-sm text-brand-muted">Choose versatile team expansion models, fixed-bid product designs, or time & material arrangements easily.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action Banner -->
+      <div class="py-16 bg-gradient-to-br from-brand-accent/20 via-brand-dark to-brand-dark border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <h2 class="text-3xl font-extrabold text-white">Have a critical tech milestone or staffing requirement?</h2>
+          <p class="text-brand-muted text-lg max-w-2xl mx-auto">Contact Omnigrain Tech today for an expert consultation. We architect high-performance teams and cutting-edge custom software.</p>
+          <div class="pt-4">
+            <button onclick="navigateTo('contact')" class="inline-flex items-center space-x-3 bg-brand-accent hover:bg-brand-accentDark text-brand-dark font-extrabold px-8 py-4 rounded-xl transition duration-300 shadow-xl shadow-brand-accent/20">
+              <span>Initiate Free Consultations</span>
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================== PAGE: ABOUT US ================== -->
+    <section id="page-about" class="page-section hidden">
+      <div class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Intro -->
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs uppercase tracking-widest text-brand-accent font-bold">About Us</span>
+            <h1 class="text-4xl font-extrabold text-white mt-2">Pioneering Tech Talent & Software</h1>
+            <p class="mt-4 text-lg text-brand-muted">At Omnigrain Tech, we are dedicated to resolving digital bottlenecks. We exist to provide stellar IT resources and build custom products that fuel continuous organizational success.</p>
+          </div>
+
+          <!-- Mission, Vision & Values -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+            <div>
+              <div class="relative rounded-2xl overflow-hidden border border-slate-800 p-8 bg-brand-card">
+                <div class="absolute -top-12 -right-12 w-48 h-48 bg-brand-accent/10 rounded-full blur-2xl"></div>
+                <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                  <i data-lucide="target" class="w-6 h-6 text-brand-accent mr-2"></i> Our Mission
+                </h3>
+                <p class="text-brand-muted leading-relaxed mb-6">
+                  To democratize top-tier technical expertise by offering high-calibre on-demand IT talent and engineering bespoke software architectures that drive innovation, resilience, and business growth.
+                </p>
+                <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                  <i data-lucide="eye" class="w-6 h-6 text-brand-accent mr-2"></i> Our Vision
+                </h3>
+                <p class="text-brand-muted leading-relaxed">
+                  To become the world's most trusted partner for scaling high-growth tech platforms, recognized globally for superior engineering capabilities, integrity in staffing, and transparent delivery standardizations.
+                </p>
+              </div>
+            </div>
+
+            <!-- Image/Visual Representation of Team -->
+            <div class="space-y-6">
+              <h3 class="text-3xl font-extrabold text-white">Why Partner with Omnigrain Tech?</h3>
+              <p class="text-brand-muted">
+                We do not just hand over CVs or build cookie-cutter layouts. We operate as your direct strategic partners, ensuring every software release or technical staff augmentation perfectly corresponds with your business metrics.
+              </p>
+              
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 mt-1 bg-brand-accent/10 p-2 rounded-lg text-brand-accent">
+                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-lg font-bold text-white">Advanced Vetting Framework</h4>
+                    <p class="text-sm text-brand-muted">Our custom matching algorithms analyze actual codework, communication excellence, and engineering methodology before deployment.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 mt-1 bg-brand-accent/10 p-2 rounded-lg text-brand-accent">
+                    <i data-lucide="workflow" class="w-5 h-5"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-lg font-bold text-white">Robust Agile Frameworks</h4>
+                    <p class="text-sm text-brand-muted">We coordinate with transparent sprints, structured code review practices, and strict documentation routines.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 mt-1 bg-brand-accent/10 p-2 rounded-lg text-brand-accent">
+                    <i data-lucide="globe" class="w-5 h-5"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-lg font-bold text-white">Global Compliance & Safety</h4>
+                    <p class="text-sm text-brand-muted">Your sensitive proprietary project assets, secure databases, and client codebases are heavily guarded with strict non-disclosure contracts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leadership Statement -->
+          <div class="bg-gradient-to-r from-slate-900 to-brand-card p-10 rounded-2xl border border-slate-800 text-center max-w-4xl mx-auto">
+            <i data-lucide="quote" class="w-12 h-12 text-brand-accent/40 mx-auto mb-4"></i>
+            <p class="text-xl text-slate-200 italic font-medium leading-relaxed">
+              "We noticed deep flaws in traditional software consulting: slow onboarding, sub-optimal communication, and severe code-quality issues. We engineered Omnigrain Tech to offer specialized elite teams and absolute clarity."
+            </p>
+            <div class="mt-6 text-sm">
+              <span class="block font-bold text-white text-base">The Omnigrain Leadership Board</span>
+              <span class="text-brand-accent">Omnigrain Tech</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================== PAGE: SERVICES ================== -->
+    <section id="page-services" class="page-section hidden">
+      <div class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Intro -->
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs uppercase tracking-widest text-brand-accent font-bold">Comprehensive Capabilities</span>
+            <h1 class="text-4xl font-extrabold text-white mt-2">Our Specialized IT Services</h1>
+            <p class="mt-4 text-lg text-brand-muted">Leverage the true power of elite engineers and tailored software systems structured for optimal corporate efficiency.</p>
+          </div>
+
+          <!-- Interactive Service Tabs -->
+          <div class="flex justify-center mb-12">
+            <div class="inline-flex p-1.5 bg-slate-900 rounded-xl border border-slate-800">
+              <button onclick="toggleServiceTab('staffing')" id="tab-staffing" class="px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 bg-brand-accent text-brand-dark shadow-md">
+                <i data-lucide="users" class="inline w-4 h-4 mr-2"></i> IT Manpower & Staffing Support
+              </button>
+              <button onclick="toggleServiceTab('custom-software')" id="tab-custom-software" class="px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 text-slate-400 hover:text-white">
+                <i data-lucide="terminal" class="inline w-4 h-4 mr-2"></i> Custom Software Development
+              </button>
+            </div>
+          </div>
+
+          <!-- Service Content: Staffing Support -->
+          <div id="service-content-staffing" class="space-y-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-6 space-y-6">
+                <h2 class="text-3xl font-bold text-white">Elite Tech Staff Augmentation</h2>
+                <p class="text-brand-muted leading-relaxed">
+                  Avoid grueling multi-month recruitment cycles. Access highly skilled engineering individuals and dedicated cross-functional squads trained to integrate immediately into your systems.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="p-4 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="font-bold text-brand-accent text-lg block">Full-Time Placement</span>
+                    <span class="text-xs text-slate-400">Direct placements with zero hassle and absolute vetting.</span>
+                  </div>
+                  <div class="p-4 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="font-bold text-brand-accent text-lg block">Contractual Scaling</span>
+                    <span class="text-xs text-slate-400">Scale up teams for short-term bursts and crunch seasons.</span>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-6">
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+                  <h3 class="text-xl font-bold text-white mb-6">Our Deep Talent Core</h3>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="p-3 bg-brand-dark rounded border border-slate-800 flex items-center space-x-3">
+                      <div class="text-brand-accent"><i data-lucide="code" class="w-5 h-5"></i></div>
+                      <span class="text-sm font-semibold text-slate-300">Front-End Experts</span>
+                    </div>
+                    <div class="p-3 bg-brand-dark rounded border border-slate-800 flex items-center space-x-3">
+                      <div class="text-brand-accent"><i data-lucide="database" class="w-5 h-5"></i></div>
+                      <span class="text-sm font-semibold text-slate-300">Backend Architects</span>
+                    </div>
+                    <div class="p-3 bg-brand-dark rounded border border-slate-800 flex items-center space-x-3">
+                      <div class="text-brand-accent"><i data-lucide="cloud" class="w-5 h-5"></i></div>
+                      <span class="text-sm font-semibold text-slate-300">Cloud Engineers</span>
+                    </div>
+                    <div class="p-3 bg-brand-dark rounded border border-slate-800 flex items-center space-x-3">
+                      <div class="text-brand-accent"><i data-lucide="shield" class="w-5 h-5"></i></div>
+                      <span class="text-sm font-semibold text-slate-300">DevSecOps Teams</span>
+                    </div>
+                    <div class="p-3 bg-brand-dark rounded border border-slate-800 flex items-center space-x-3">
+                      <div class="text-brand-accent"><i data-lucide="smartphone" class="w-5 h-5"></i></div>
+                      <span class="text-sm font-semibold text-slate-300">Mobile Engineers</span>
+                    </div>
+                    <div class="p-3 bg-brand-dark rounded border border-slate-800 flex items-center space-x-3">
+                      <div class="text-brand-accent"><i data-lucide="activity" class="w-5 h-5"></i></div>
+                      <span class="text-sm font-semibold text-slate-300">QA Automation Specialists</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recruitment Process -->
+            <div class="pt-10 border-t border-slate-800">
+              <h3 class="text-2xl font-bold text-white text-center mb-10">Our 4-Stage Vetting Pipeline</h3>
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl relative">
+                  <span class="absolute top-4 right-4 text-slate-700 font-extrabold text-4xl">01</span>
+                  <h4 class="text-lg font-bold text-white mb-2">Technical Screening</h4>
+                  <p class="text-xs text-brand-muted">Rigorous algorithmic tests and structured, customized project architectures review.</p>
+                </div>
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl relative">
+                  <span class="absolute top-4 right-4 text-slate-700 font-extrabold text-4xl">02</span>
+                  <h4 class="text-lg font-bold text-white mb-2">Practical Live Coding</h4>
+                  <p class="text-xs text-brand-muted">Real-time live logic development, debugging analysis, and performance optimization checks.</p>
+                </div>
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl relative">
+                  <span class="absolute top-4 right-4 text-slate-700 font-extrabold text-4xl">03</span>
+                  <h4 class="text-lg font-bold text-white mb-2">Architectural Alignment</h4>
+                  <p class="text-xs text-brand-muted">Systemic evaluation of enterprise infrastructure design patterns and code maintenance standards.</p>
+                </div>
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl relative">
+                  <span class="absolute top-4 right-4 text-slate-700 font-extrabold text-4xl">04</span>
+                  <h4 class="text-lg font-bold text-white mb-2">Culture & Communication</h4>
+                  <p class="text-xs text-brand-muted">Evaluation of professional alignment, leadership capability, agile adaptability, and communication.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Content: Custom Software -->
+          <div id="service-content-software" class="space-y-16 hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-6 space-y-6">
+                <h2 class="text-3xl font-bold text-white">Custom Product Engineering</h2>
+                <p class="text-brand-muted leading-relaxed">
+                  We design, build, and support high-load modern web products, responsive mobile platforms, and robust enterprise databases customized specifically for your company's operational bottlenecks.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-center space-x-3 text-slate-300">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-accent"></i>
+                    <span>React, Angular, Vue, and high-performance Web Frameworks</span>
+                  </div>
+                  <div class="flex items-center space-x-3 text-slate-300">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-accent"></i>
+                    <span>Node.js, Go, Python, and scalable Cloud-Native Backends</span>
+                  </div>
+                  <div class="flex items-center space-x-3 text-slate-300">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-brand-accent"></i>
+                    <span>Highly responsive iOS & Android Native/Hybrid Architectures</span>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-6">
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+                  <h3 class="text-xl font-bold text-white mb-6">Our Design & Code Excellence</h3>
+                  <p class="text-sm text-brand-muted mb-6">We don't leave things to chance. Our development lifecycle tracks metrics precisely at every iteration phase:</p>
+                  <div class="space-y-4">
+                    <div>
+                      <div class="flex justify-between text-xs font-semibold mb-1">
+                        <span>Modern UI/UX Fluidity</span>
+                        <span>100% Responsive</span>
+                      </div>
+                      <div class="w-full bg-slate-800 rounded-full h-2">
+                        <div class="bg-brand-accent h-2 rounded-full" style="width: 100%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-xs font-semibold mb-1">
+                        <span>Security & API Integration Best-Practices</span>
+                        <span>Enterprise Certified</span>
+                      </div>
+                      <div class="w-full bg-slate-800 rounded-full h-2">
+                        <div class="bg-brand-accent h-2 rounded-full" style="width: 100%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-xs font-semibold mb-1">
+                        <span>Test Coverage & Core Quality Assurance</span>
+                        <span>>92% Test coverage</span>
+                      </div>
+                      <div class="w-full bg-slate-800 rounded-full h-2">
+                        <div class="bg-brand-accent h-2 rounded-full" style="width: 92%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Software Process -->
+            <div class="pt-10 border-t border-slate-800">
+              <h3 class="text-2xl font-bold text-white text-center mb-10">Our Agile Build Lifecycle</h3>
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl relative">
+                  <span class="absolute top-4 right-4 text-slate-700 font-extrabold text-4xl">01</span>
+                  <h4 class="text-lg font-bold text-white mb-2">Scope & Design</h4>
+                  <p class="text-xs text-brand-muted">Requirement alignment, interactive UI prototypes, and structural system database blueprinting.</p>
+                </div>
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl relative">
+                  <span class="absolute top-4 right-4 text-slate-700 font-extrabold text-4xl">02</span>
+                  <h4 class="text-lg font-bold text-white mb-2">Development Sprints</h4>
+                  <p class="text-xs text-brand-muted">Transparent weekly sprint milestones, functional code builds, and continuous reviews.</p>
+                </div>
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl relative">
+                  <span class="absolute top-4 right-4 text-slate-700 font-extrabold text-4xl">03</span>
+                  <h4 class="text-lg font-bold text-white mb-2">Automated Testing</h4>
+                  <p class="text-xs text-brand-muted">Unit testing, stress performance load checking, and complete end-to-end bug isolation.</p>
+                </div>
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-xl relative">
+                  <span class="absolute top-4 right-4 text-slate-700 font-extrabold text-4xl">04</span>
+                  <h4 class="text-lg font-bold text-white mb-2">Deploy & Maintain</h4>
+                  <p class="text-xs text-brand-muted">Secure Cloud infrastructure configuration, seamless CI/CD setup, and 24/7 post-launch support.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================== PAGE: CAREERS ================== -->
+    <section id="page-careers" class="page-section hidden">
+      <div class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Intro -->
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs uppercase tracking-widest text-brand-accent font-bold">Join Our Elite Team</span>
+            <h1 class="text-4xl font-extrabold text-white mt-2">Accelerate Your Engineering Career</h1>
+            <p class="mt-4 text-lg text-brand-muted">Whether joining our corporate core or joining our premium, high-impact consulting manpower pool, unleash your full potential with Omnigrain Tech.</p>
+          </div>
+
+          <!-- Core Benefits -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl">
+              <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-accent mb-4">
+                <i data-lucide="laptop" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Work From Anywhere</h3>
+              <p class="text-sm text-brand-muted">Embrace genuine work-life balance. We prioritize actual output over clock-in times. Work 100% remotely or hybrid.</p>
+            </div>
+
+            <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl">
+              <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-accent mb-4">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Continuous Upskilling</h3>
+              <p class="text-sm text-brand-muted">Receive educational budgets, technical certifications, training programs, and mentorship to sharpen your skills.</p>
+            </div>
+
+            <div class="p-8 bg-slate-900 border border-slate-800 rounded-2xl">
+              <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center text-brand-accent mb-4">
+                <i data-lucide="trending-up" class="w-5 h-5"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Fast-track Growth</h3>
+              <p class="text-sm text-brand-muted">Work on diverse high-impact client products. Earn faster promotions, raises, and bonuses with our meritocratic culture.</p>
+            </div>
+          </div>
+
+          <!-- Open Positions -->
+          <div class="mb-20">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+              <h2 class="text-2xl font-bold text-white">Current Open Positions</h2>
+              <div class="flex space-x-3 mt-4 md:mt-0">
+                <select id="job-category-filter" onchange="filterJobs()" class="bg-slate-900 border border-slate-800 text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-accent text-slate-300">
+                  <option value="all">All Departments</option>
+                  <option value="engineering">Engineering</option>
+                  <option value="design">UI/UX Design</option>
+                  <option value="qa">QA / Automation</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Job Cards Grid -->
+            <div id="jobs-container" class="space-y-4">
+              <!-- Job 1 -->
+              <div class="job-card bg-slate-900 border border-slate-800 hover:border-slate-700 p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center transition duration-200" data-dept="engineering">
+                <div>
+                  <span class="inline-block px-2.5 py-1 text-xs font-semibold bg-brand-accent/10 text-brand-accent rounded mb-3">Engineering</span>
+                  <h3 class="text-xl font-bold text-white mb-1">Senior React / Full-Stack Engineer</h3>
+                  <div class="flex flex-wrap gap-4 text-xs text-brand-muted mt-2">
+                    <span class="flex items-center"><i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1"></i> Remote (India / APAC)</span>
+                    <span class="flex items-center"><i data-lucide="clock" class="w-3.5 h-3.5 mr-1"></i> Full-Time</span>
+                    <span class="flex items-center"><i data-lucide="dollar-sign" class="w-3.5 h-3.5 mr-1"></i> Highly Competitive</span>
+                  </div>
+                </div>
+                <button onclick="openApplyModal('Senior React / Full-Stack Engineer')" class="mt-4 md:mt-0 px-5 py-2.5 bg-brand-accent hover:bg-brand-accentDark text-brand-dark font-bold text-sm rounded-lg transition-all duration-200 shadow-md">Apply Now</button>
+              </div>
+
+              <!-- Job 2 -->
+              <div class="job-card bg-slate-900 border border-slate-800 hover:border-slate-700 p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center transition duration-200" data-dept="engineering">
+                <div>
+                  <span class="inline-block px-2.5 py-1 text-xs font-semibold bg-brand-accent/10 text-brand-accent rounded mb-3">Engineering</span>
+                  <h3 class="text-xl font-bold text-white mb-1">Senior DevOps & Cloud Engineer</h3>
+                  <div class="flex flex-wrap gap-4 text-xs text-brand-muted mt-2">
+                    <span class="flex items-center"><i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1"></i> Remote / Hybrid (Mumbai)</span>
+                    <span class="flex items-center"><i data-lucide="clock" class="w-3.5 h-3.5 mr-1"></i> Full-Time</span>
+                    <span class="flex items-center"><i data-lucide="dollar-sign" class="w-3.5 h-3.5 mr-1"></i> Industry Standard</span>
+                  </div>
+                </div>
+                <button onclick="openApplyModal('Senior DevOps & Cloud Engineer')" class="mt-4 md:mt-0 px-5 py-2.5 bg-brand-accent hover:bg-brand-accentDark text-brand-dark font-bold text-sm rounded-lg transition-all duration-200 shadow-md">Apply Now</button>
+              </div>
+
+              <!-- Job 3 -->
+              <div class="job-card bg-slate-900 border border-slate-800 hover:border-slate-700 p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center transition duration-200" data-dept="design">
+                <div>
+                  <span class="inline-block px-2.5 py-1 text-xs font-semibold bg-purple-500/10 text-purple-400 rounded mb-3">UI/UX Design</span>
+                  <h3 class="text-xl font-bold text-white mb-1">Lead UI/UX Product Designer</h3>
+                  <div class="flex flex-wrap gap-4 text-xs text-brand-muted mt-2">
+                    <span class="flex items-center"><i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1"></i> Remote (India)</span>
+                    <span class="flex items-center"><i data-lucide="clock" class="w-3.5 h-3.5 mr-1"></i> Full-Time</span>
+                    <span class="flex items-center"><i data-lucide="dollar-sign" class="w-3.5 h-3.5 mr-1"></i> Premium Grade</span>
+                  </div>
+                </div>
+                <button onclick="openApplyModal('Lead UI/UX Product Designer')" class="mt-4 md:mt-0 px-5 py-2.5 bg-brand-accent hover:bg-brand-accentDark text-brand-dark font-bold text-sm rounded-lg transition-all duration-200 shadow-md">Apply Now</button>
+              </div>
+
+              <!-- Job 4 -->
+              <div class="job-card bg-slate-900 border border-slate-800 hover:border-slate-700 p-6 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center transition duration-200" data-dept="qa">
+                <div>
+                  <span class="inline-block px-2.5 py-1 text-xs font-semibold bg-amber-500/10 text-amber-400 rounded mb-3">QA / Automation</span>
+                  <h3 class="text-xl font-bold text-white mb-1">QA Automation Engineer (Cypress / Playwright)</h3>
+                  <div class="flex flex-wrap gap-4 text-xs text-brand-muted mt-2">
+                    <span class="flex items-center"><i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1"></i> Hybrid (Mumbai)</span>
+                    <span class="flex items-center"><i data-lucide="clock" class="w-3.5 h-3.5 mr-1"></i> Full-Time</span>
+                    <span class="flex items-center"><i data-lucide="dollar-sign" class="w-3.5 h-3.5 mr-1"></i> Industry Standard</span>
+                  </div>
+                </div>
+                <button onclick="openApplyModal('QA Automation Engineer')" class="mt-4 md:mt-0 px-5 py-2.5 bg-brand-accent hover:bg-brand-accentDark text-brand-dark font-bold text-sm rounded-lg transition-all duration-200 shadow-md">Apply Now</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- General Manpower Pool Callout -->
+          <div class="p-8 rounded-2xl bg-gradient-to-r from-brand-accent/10 to-blue-600/10 border border-slate-800 text-center max-w-4xl mx-auto">
+            <h3 class="text-xl font-bold text-white mb-2">Don't see a perfect match?</h3>
+            <p class="text-sm text-brand-muted mb-6">Join our extensive Talent Manpower Pool! When major client requirements open up, we contact our pool profiles first.</p>
+            <button onclick="openApplyModal('General Pool Application')" class="px-6 py-3 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold rounded-lg transition-all">Submit CV to Talent Pool</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================== PAGE: CONTACT US ================== -->
+    <section id="page-contact" class="page-section hidden">
+      <div class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Intro -->
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs uppercase tracking-widest text-brand-accent font-bold">Contact Us</span>
+            <h1 class="text-4xl font-extrabold text-white mt-2">Let's Build Great Things Together</h1>
+            <p class="mt-4 text-lg text-brand-muted">Drop your tech requirements or recruitment goals. Our team usually reviews and responds within 2 business hours.</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Contact details & Trust signals -->
+            <div class="lg:col-span-5 space-y-8">
+              <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 space-y-6">
+                <h3 class="text-2xl font-bold text-white">Direct Corporate Desk</h3>
+                <p class="text-sm text-brand-muted">Get directly in touch with our engineering architects or account relations teams.</p>
+                
+                <div class="space-y-4">
+                  <!-- Email -->
+                  <div class="flex items-center space-x-4 p-4 bg-brand-dark rounded-xl border border-slate-800/80">
+                    <div class="w-10 h-10 bg-brand-accent/10 rounded-lg flex items-center justify-center text-brand-accent">
+                      <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Primary Email</span>
+                      <a href="mailto:contact@omnigrain.in" class="block text-sm font-semibold text-white hover:text-brand-accent transition">contact@omnigrain.in</a>
+                    </div>
+                  </div>
+
+                  <!-- Phone / WhatsApp -->
+                  <div class="flex items-center space-x-4 p-4 bg-brand-dark rounded-xl border border-slate-800/80">
+                    <div class="w-10 h-10 bg-brand-accent/10 rounded-lg flex items-center justify-center text-brand-accent">
+                      <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Corporate Hotline</span>
+                      <a href="tel:+91221234567" class="block text-sm font-semibold text-white hover:text-brand-accent transition">+91 (22) 1234-5678</a>
+                    </div>
+                  </div>
+
+                  <!-- Corporate Address -->
+                  <div class="flex items-center space-x-4 p-4 bg-brand-dark rounded-xl border border-slate-800/80">
+                    <div class="w-10 h-10 bg-brand-accent/10 rounded-lg flex items-center justify-center text-brand-accent">
+                      <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Main Headquarters</span>
+                      <span class="block text-sm font-semibold text-white">Omnigrain Tech Tower, Bandra Kurla Complex, Mumbai, India</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Security Badges -->
+              <div class="p-6 bg-brand-dark border border-slate-800 rounded-xl text-center">
+                <p class="text-xs text-brand-muted">
+                  <i data-lucide="shield-alert" class="inline w-4 h-4 text-brand-accent mr-1.5"></i>
+                  All communications and project files are secured by 256-bit SSL encryption under rigid mutual NDA regulations.
+                </p>
+              </div>
+            </div>
+
+            <!-- Premium Contact Form -->
+            <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-xl relative">
+              <h3 class="text-2xl font-bold text-white mb-6">Request Callback / Consultations</h3>
+              
+              <!-- Form Success Feedback (Hidden by default) -->
+              <div id="contact-success" class="hidden mb-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-center space-y-3">
+                <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
+                  <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white">Query Submitted Successfully!</h4>
+                <p class="text-sm text-brand-muted">Thank you for contacting Omnigrain Tech. A tech expert will review your requirements and respond at your email shortly.</p>
+              </div>
+
+              <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5">
+                <!-- Row 1: Name and Company -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Full Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="fullName" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition" placeholder="John Doe">
+                  </div>
+                  <div>
+                    <label for="companyName" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Company Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="companyName" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition" placeholder="Acme Corporation">
+                  </div>
+                </div>
+
+                <!-- Row 2: Email and Phone -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label for="contactEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Contact Email ID <span class="text-red-500">*</span></label>
+                    <input type="email" id="contactEmail" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition" placeholder="john@acme.com">
+                  </div>
+                  <div>
+                    <label for="phoneNumber" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Phone Number <span class="text-red-500">*</span></label>
+                    <input type="tel" id="phoneNumber" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition" placeholder="+91 98765 43210">
+                  </div>
+                </div>
+
+                <!-- Row 3: Reason for Contact Dropdown -->
+                <div>
+                  <label for="contactReason" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Reason for Contact <span class="text-red-500">*</span></label>
+                  <select id="contactReason" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-3 text-sm text-slate-300 focus:outline-none transition">
+                    <option value="" disabled selected>-- Select an option --</option>
+                    <option value="Manpower Support">IT Manpower & Staffing Support</option>
+                    <option value="Custom Software">Custom Software Engineering</option>
+                    <option value="General Inquiry">General / Collaboration Inquiry</option>
+                  </select>
+                </div>
+
+                <!-- Row 4: Message/Requirements Box -->
+                <div>
+                  <label for="messageBox" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Message / Requirements <span class="text-red-500">*</span></label>
+                  <textarea id="messageBox" rows="5" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition" placeholder="Please outline your tech scope or staffing specs..."></textarea>
+                </div>
+
+                <!-- Action button -->
+                <div>
+                  <button type="submit" class="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-brand-accent to-blue-600 hover:from-brand-accentDark hover:to-blue-700 text-white font-bold py-4 rounded-xl shadow-lg shadow-brand-accent/10 hover:shadow-brand-accent/20 transition-all duration-300">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>Submit Query</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Career Application Modal (Full Custom UI) -->
+  <div id="apply-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-brand-dark/80 backdrop-blur-md">
+    <div class="relative bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-xl p-8 shadow-2xl">
+      <!-- Close button -->
+      <button onclick="closeApplyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <h3 class="text-2xl font-bold text-white mb-2">Apply for Position</h3>
+      <p id="modal-job-title" class="text-sm text-brand-accent font-semibold mb-6">Senior Software Architect</p>
+
+      <!-- Application Feedback -->
+      <div id="apply-success" class="hidden mb-6 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-center text-sm">
+        <p class="text-white font-semibold">Application Submitted Successfully!</p>
+        <p class="text-xs text-brand-muted mt-1">Our talent acquisition panel will audit your resume and contact you soon.</p>
+      </div>
+
+      <form id="apply-form" onsubmit="handleApplySubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Your Full Name *</label>
+          <input type="text" id="applyName" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none transition" placeholder="Jane Doe">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Email Address *</label>
+          <input type="email" id="applyEmail" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none transition" placeholder="jane.doe@example.com">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Resume Link *</label>
+          <input type="url" id="applyResume" required class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none transition" placeholder="https://drive.google.com/resume-link">
+          <span class="text-[10px] text-slate-500 block mt-1">Please provide a public link (Google Drive, Dropbox, Notion, etc.)</span>
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Short Cover Note / Portfolio</label>
+          <textarea id="applyCover" rows="3" class="w-full bg-brand-dark border border-slate-800 focus:border-brand-accent rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none transition" placeholder="Highlight why you are an ideal engineering fit..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accentDark text-brand-dark font-bold py-3 rounded-lg transition duration-200">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+        
+        <!-- Corporate Info -->
+        <div class="md:col-span-4 space-y-4">
+          <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('home')">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-accent to-blue-600 flex items-center justify-center">
+              <img src="logofcompany.png"
+              alt="Omnigrain Logo"
+              class="w-full h-full object-contain">
+            </div>
+            <div>
+              <span class="text-lg font-extrabold tracking-wider text-white">OMNIGRAIN</span>
+              <span class="block text-[8px] text-brand-accent tracking-[0.25em] font-bold uppercase">TECH</span>
+            </div>
+          </div>
+          <p class="text-xs text-brand-muted leading-relaxed max-w-sm">
+            Bridging key digital resource requirements across global corporate structures through pristine custom software engineering and vetted IT staff augmentation.
+          </p>
+        </div>
+
+        <!-- Links Quick Links -->
+        <div class="md:col-span-2 space-y-4">
+          <h4 class="text-sm font-semibold uppercase tracking-wider text-white">Quick Links</h4>
+          <ul class="space-y-2 text-xs">
+            <li><button onclick="navigateTo('home')" class="text-brand-muted hover:text-white transition">Home</button></li>
+            <li><button onclick="navigateTo('about')" class="text-brand-muted hover:text-white transition">About Us</button></li>
+            <li><button onclick="navigateTo('services')" class="text-brand-muted hover:text-white transition">Services</button></li>
+            <li><button onclick="navigateTo('careers')" class="text-brand-muted hover:text-white transition">Careers</button></li>
+            <li><button onclick="navigateTo('contact')" class="text-brand-muted hover:text-white transition">Contact Us</button></li>
+          </ul>
+        </div>
+
+        <!-- Links Our Services -->
+        <div class="md:col-span-3 space-y-4">
+          <h4 class="text-sm font-semibold uppercase tracking-wider text-white">Core Services</h4>
+          <ul class="space-y-2 text-xs text-brand-muted">
+            <li><button onclick="navigateTo('services'); toggleServiceTab('staffing');" class="hover:text-white transition text-left">Enterprise Staff Augmentation</button></li>
+            <li><button onclick="navigateTo('services'); toggleServiceTab('staffing');" class="hover:text-white transition text-left">On-Demand IT Manpower Pool</button></li>
+            <li><button onclick="navigateTo('services'); toggleServiceTab('custom-software');" class="hover:text-white transition text-left">Bespoke Full-Stack Software</button></li>
+            <li><button onclick="navigateTo('services'); toggleServiceTab('custom-software');" class="hover:text-white transition text-left">Cloud Native Integrations</button></li>
+          </ul>
+        </div>
+
+        <!-- Legal Disclaimer / API Link -->
+        <div class="md:col-span-3 space-y-4">
+          <h4 class="text-sm font-semibold uppercase tracking-wider text-white">Corporate Contacts</h4>
+          <p class="text-xs text-brand-muted">
+            Omnigrain Tech Tower, Bandra Kurla Complex, Mumbai, India.
+          </p>
+          <p class="text-xs text-brand-accent font-semibold">
+            contact@omnigrain.in
+          </p>
+        </div>
+      </div>
+
+      <!-- Legal footer -->
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
+        <p>&copy; 2026 Omnigrain Tech Private Limited. All rights reserved.</p>
+        <div class="flex space-x-6 mt-4 sm:mt-0">
+          <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300">Terms of Service</a>
+          <a href="#" class="hover:text-slate-300">SLA Agreement</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation Router Logic (Tab-based Multi-page Experience)
+    function navigateTo(pageId) {
+      // 1. Hide all pages
+      document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.add('hidden');
+      });
+      
+      // 2. Show selected page
+      const selectedPage = document.getElementById(`page-${pageId}`);
+      if (selectedPage) {
+        selectedPage.classList.remove('hidden');
+      }
+
+      // 3. Update active nav button state (Desktop)
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('nav-active');
+      });
+      const activeNavBtn = document.getElementById(`nav-${pageId}`);
+      if (activeNavBtn) {
+        activeNavBtn.classList.add('nav-active');
+      }
+
+      // 4. Close mobile menu
+      const mobileMenu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      mobileMenu.classList.add('hidden');
+      openIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+
+      // 5. Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle between Staffing and Custom Software Services
+    function toggleServiceTab(tabType) {
+      const staffingBtn = document.getElementById('tab-staffing');
+      const softwareBtn = document.getElementById('tab-custom-software');
+      const staffingContent = document.getElementById('service-content-staffing');
+      const softwareContent = document.getElementById('service-content-software');
+
+      if (tabType === 'staffing') {
+        staffingBtn.className = "px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 bg-brand-accent text-brand-dark shadow-md";
+        softwareBtn.className = "px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 text-slate-400 hover:text-white";
+        staffingContent.classList.remove('hidden');
+        softwareContent.classList.add('hidden');
+      } else {
+        softwareBtn.className = "px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 bg-brand-accent text-brand-dark shadow-md";
+        staffingBtn.className = "px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 text-slate-400 hover:text-white";
+        softwareContent.classList.remove('hidden');
+        staffingContent.classList.add('hidden');
+      }
+    }
+
+    // Job Filter Logic
+    function filterJobs() {
+      const filterValue = document.getElementById('job-category-filter').value;
+      const jobCards = document.querySelectorAll('.job-card');
+
+      jobCards.forEach(card => {
+        if (filterValue === 'all' || card.dataset.dept === filterValue) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Mobile Navigation Button Trigger
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    });
+
+    // Form submission simulation (Pre-linked to direct Email Endpoint / CRM fallback integration logic)
+    function handleContactSubmit(event) {
+      event.preventDefault();
+
+      const fullName = document.getElementById('fullName').value;
+      const companyName = document.getElementById('companyName').value;
+      const contactEmail = document.getElementById('contactEmail').value;
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const contactReason = document.getElementById('contactReason').value;
+      const message = document.getElementById('messageBox').value;
+
+      // Log to console so developer is fully aware of successful client validation
+      console.log('Sending Query directly to contact@omnigrain.in with dataset:', {
+        fullName,
+        companyName,
+        contactEmail,
+        phoneNumber,
+        contactReason,
+        message
+      });
+
+      // API Integration Blueprint code (uncomment below for direct production deployment with Formspree or custom Node api)
+      /*
+      fetch('https://formspree.io/f/your_form_id_or_api', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          _replyto: 'contact@omnigrain.in',
+          name: fullName,
+          company: companyName,
+          email: contactEmail,
+          phone: phoneNumber,
+          reason: contactReason,
+          message: message
+        })
+      });
+      */
+
+      // Show UI Success Confirmation State
+      const successBox = document.getElementById('contact-success');
+      successBox.classList.remove('hidden');
+      
+      // Reset form
+      document.getElementById('contact-form').reset();
+
+      // Scroll smoothly to success box
+      successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Automatically hide success notification after 10 seconds
+      setTimeout(() => {
+        successBox.classList.add('hidden');
+      }, 10000);
+    }
+
+    // Careers Application Modal Logic
+    function openApplyModal(jobTitle) {
+      document.getElementById('modal-job-title').textContent = jobTitle;
+      document.getElementById('apply-modal').classList.remove('hidden');
+      document.getElementById('apply-modal').classList.add('flex');
+    }
+
+    function closeApplyModal() {
+      document.getElementById('apply-modal').classList.remove('flex');
+      document.getElementById('apply-modal').classList.add('hidden');
+      document.getElementById('apply-success').classList.add('hidden');
+      document.getElementById('apply-form').reset();
+    }
+
+    function handleApplySubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('applyName').value;
+      const email = document.getElementById('applyEmail').value;
+      const resume = document.getElementById('applyResume').value;
+      const cover = document.getElementById('applyCover').value;
+      const position = document.getElementById('modal-job-title').textContent;
+
+      console.log(`Submitting Job Application for [${position}] to careers pipeline:`, {
+        name,
+        email,
+        resume,
+        cover
+      });
+
+      // Show UI success
+      document.getElementById('apply-success').classList.remove('hidden');
+      document.getElementById('apply-form').reset();
+
+      // Close modal gracefully after some delay
+      setTimeout(() => {
+        closeApplyModal();
+      }, 3000);
+    }
+
+    // Initialize Page and Lucide Icons
+    window.onload = function() {
+      lucide.createIcons();
+      navigateTo('home'); // Load Home page initially
+    }
+  </script>
+</body>
+</html>
